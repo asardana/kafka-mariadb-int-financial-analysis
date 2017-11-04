@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="1" author="aman">
+        <createTable tableName="loan_details">
+            <column name="id" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="loanAmt" type="DOUBLE(6,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fundedAmt" type="DOUBLE(6,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="term" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="intRate" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="grade" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="homeOwnership" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="annualIncome" type="DOUBLE(8,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="addressState" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="policyCode" type="VARCHAR(2)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="aman">
+        <addAutoIncrement tableName="loan_details" columnDataType="int" columnName="id" incrementBy="1"
+                          startWith="10000"/>
+    </changeSet>
+
+    <changeSet id="3" author="aman">
+        <modifyDataType tableName="loan_details" columnName="loanAmt" newDataType="DOUBLE(10,2)"/>
+        <modifyDataType tableName="loan_details" columnName="fundedAmt" newDataType="DOUBLE(10,2)"/>
+        <modifyDataType tableName="loan_details" columnName="annualIncome" newDataType="DOUBLE(10,2)"/>
+    </changeSet>
+
+</databaseChangeLog>
